@@ -6,7 +6,7 @@ dir = "../db"
 filename = "70b-test.txt"
 
 # Create the classifier
-model = "llama3-70b-classifier-scenar3"
+model = "llama3.1-70b-classifier-scenar3"
 
 def ira_for_file(filepath, classifier: ClassifierAgent):
 

@@ -3,7 +3,7 @@ import time
 import request
 import datetime as dt
 from smartmeter import SmartMeter
-model = 'llama3-parser-LP'
+model = 'llama3.1-parser-LP'
 requestt = "Please charge my car now for 8 hours at the lowest cost. I need the battery at 209%."
 op_id = "LP"
 

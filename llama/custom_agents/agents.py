@@ -7,7 +7,7 @@ import datetime as dt
 import random
 import types
 
-default_model = "llama3"
+default_model = "llama3.1"
 
 link_dict = {
     "LP":["LP"],
