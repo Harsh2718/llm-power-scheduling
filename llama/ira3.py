@@ -2,7 +2,7 @@ from custom_agents.agents import ClassifierAgent
 import os
 import time
 
-dir = "../db"
+dir = "C:\Users\harsh\OneDrive\Documents\GitHub\llm-power-scheduling\EVRQ"
 
 # Create the classifier
 model = "llama3.1-classifier-scenar3"
@@ -11,6 +11,7 @@ def ira_for_file(filepath, classifier: ClassifierAgent):
 
     # Output file
     filename = os.path.basename(filepath)
+    print(filename)
     output_file = filename[:-4] + f"-ira-{model}-{classifier.number_of_classes}.txt"
     print(output_file)
     output_path = os.path.join('ira/scenar3', output_file)
@@ -51,13 +52,14 @@ dict_problems = {
 for i in range(1,max_classes+1):
     classifier = ClassifierAgent(i, model+f"-op{i}")
     ops_to_treat = classifier.op_classes[:i]
-    print(ops_to_treat)
+    #print(ops_to_treat)
     for op_id in ops_to_treat:
         for problem in dict_problems[op_id]:
             # File that starts with "problem"
-            print(dir)
             for file in os.listdir(dir):
                 if file.startswith(problem):
+                    print(file)
+                    print(file[:-4])
                     # Check if already treated
                     if not os.path.exists(os.path.join('ira/scenar3',file[:-4] + f"-ira-{model}-{i}.txt")):
                         ira_for_file(os.path.join(dir, file), classifier)
